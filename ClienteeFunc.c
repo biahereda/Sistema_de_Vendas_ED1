@@ -34,7 +34,7 @@ void cadastro_cliente ()
         exit (1);
     }
     do{
-        printf ("---------CADASTRO DE CLIENTE----------\n\n");
+        printf ("----------CADASTRO DE CLIENTE----------\n\n");
 
         printf ("Digite o nome do cliente: \n");
         fflush(stdin);
@@ -78,7 +78,7 @@ int  consulta_cliente(){
         char cpf_2[12];
         char escolha;
         
-        printf ("*******CONSULTA DE CLIENTE***********");
+        printf ("--------CONSULTA DE CLIENTE--------");
         printf("Digite o cpf do cliente que deseja consultar: \n ");
         scanf(" %s",cpf_2);
 
@@ -165,7 +165,7 @@ int consulta_fornecedor (){
         char cnpj_2[15];
         char escolha;
         
-        printf ("********CONSULTA DE FORNECEDOR********");
+        printf ("-------CONSULTA DE FORNECEDOR-------");
         printf("\nDigite o cnpj da empresa que deseja consultar: \n ");
         scanf(" %s",cnpj_2);
 
@@ -198,9 +198,6 @@ int consulta_fornecedor (){
             return 0;
     }
 
-
-
-
 }
 
 
@@ -218,7 +215,7 @@ int exclui_cliente (){
         Cliente b;
         int encontrado =0;
         
-        printf ("********EXCLUSAO DE CLIENTE********");
+        printf ("-------EXCLUSAO DE CLIENTE-------");
         printf ("Digite o cpf do cliente que deseja remover: ");
         scanf ("%s", cpf_2);
 
@@ -286,7 +283,7 @@ int altera_cliente (){
         char escolha_1;
         
         
-        printf ("********ALTERACAO DE DADOS DO CLIENTE********");
+        printf ("-------ALTERACAO DE DADOS DO CLIENTE-------");
         printf ("Digite o cpf do cliente para fazer a alteracao de dados: \n");
         scanf ("%s", cpf_2);
 
@@ -388,7 +385,7 @@ int exclui_fornecedor (){
         int encontrado =0;
         
         
-        printf ("********EXCLUSAO DE FORNECEDOR********");
+        printf ("-------EXCLUSAO DE FORNECEDOR-------");
         printf ("Digite o cnpj do fornecedor que deseja remover: ");
         scanf ("%s", cnpj_2);
 
@@ -452,7 +449,7 @@ int altera_fornecedor (){
         char escolha_1;
         
         
-        printf ("********ALTERAR DADOS DO FORNECEDOR********);
+        printf ("-------ALTERAR DADOS DO FORNECEDOR-------");
         printf ("Digite o cnpj do fornecedor para fazer a alteracao de dados: \n");
         scanf ("%s", cnpj_2);
 
