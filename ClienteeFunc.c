@@ -27,14 +27,14 @@ void cadastro_cliente ()
     FILE* arquivo;
     Cliente b;
     char escolha;
-    arquivo=fopen("listacliente.bin", "ab");
+    arquivo=fopen("listacliente.dat", "ab");
 
     if (arquivo==NULL){
         printf ("ERRO");
         exit (1);
     }
     do{
-        printf ("----------CADASTRO DE CLIENTE----------\n\n");
+        printf ("---------CADASTRO DE CLIENTE----------\n\n");
 
         printf ("Digite o nome do cliente: \n");
         fflush(stdin);
@@ -66,7 +66,7 @@ void cadastro_cliente ()
 
 int  consulta_cliente(){
     FILE* arquivo;
-    arquivo = fopen("listacliente.bin", "rb");
+    arquivo = fopen("listacliente.dat", "rb");
 
     if(arquivo==NULL){
         printf("Erro na abertura do arquivo");
@@ -77,8 +77,6 @@ int  consulta_cliente(){
         Cliente b;
         char cpf_2[12];
         char escolha;
-        
-        printf ("--------CONSULTA DE CLIENTE--------");
         printf("Digite o cpf do cliente que deseja consultar: \n ");
         scanf(" %s",cpf_2);
 
@@ -116,7 +114,7 @@ void cadastro_fornecedor (){
     Fornecedor b;
     char escolha;
 
-    arquivo=fopen ("listafornecedor.bin", "ab");
+    arquivo=fopen ("listafornecedor.dat", "ab");
     if (arquivo==NULL){
         printf ("Erro na abertura do arquivo");
         exit (1);
@@ -153,7 +151,7 @@ void cadastro_fornecedor (){
 
 int consulta_fornecedor (){
     FILE *arquivo;
-    arquivo=fopen("listafornecedor.bin", "rb");
+    arquivo=fopen("listafornecedor.dat", "rb");
 
     if (arquivo==NULL){
         printf ("Erro na abertura do arquivo");
@@ -164,8 +162,7 @@ int consulta_fornecedor (){
         Fornecedor b;
         char cnpj_2[15];
         char escolha;
-        
-        printf ("-------CONSULTA DE FORNECEDOR-------");
+
         printf("\nDigite o cnpj da empresa que deseja consultar: \n ");
         scanf(" %s",cnpj_2);
 
@@ -181,7 +178,7 @@ int consulta_fornecedor (){
 
         }
 
-        printf ("Fornecedor nao cadastrado! Deseja cadastrar agora? S/N");
+        printf ("Fornecedor nao cadastrado! Deseja cadastrar agora? S/N \n");
         fflush(stdin);
         scanf ("%c", &escolha);
 
@@ -198,6 +195,9 @@ int consulta_fornecedor (){
             return 0;
     }
 
+
+
+
 }
 
 
@@ -206,7 +206,7 @@ int exclui_cliente (){
     char cpf_2 [12];
     char escolha;
 
-    arquivo=fopen ("listacliente.bin", "r+b" );
+    arquivo=fopen ("listacliente.dat", "r+b" );
     if (arquivo==NULL){
         printf ("Erro na abertura do arquivo");
         exit (1);
@@ -214,8 +214,7 @@ int exclui_cliente (){
     else {
         Cliente b;
         int encontrado =0;
-        
-        printf ("-------EXCLUSAO DE CLIENTE-------");
+
         printf ("Digite o cpf do cliente que deseja remover: ");
         scanf ("%s", cpf_2);
 
@@ -271,7 +270,7 @@ int altera_cliente (){
     FILE *arquivo;
     char cpf_2[12];
 
-    arquivo=fopen ("listacliente.bin", "r+b");
+    arquivo=fopen ("listacliente.dat", "r+b");
     if (arquivo==NULL){
         printf ("Erro na abertura do arquivo");
         exit (1);
@@ -281,9 +280,7 @@ int altera_cliente (){
         int escolha;
         int verificador = 0;
         char escolha_1;
-        
-        
-        printf ("-------ALTERACAO DE DADOS DO CLIENTE-------");
+
         printf ("Digite o cpf do cliente para fazer a alteracao de dados: \n");
         scanf ("%s", cpf_2);
 
@@ -375,7 +372,7 @@ int exclui_fornecedor (){
     char cnpj_2[15];
     char escolha;
 
-    arquivo=fopen ("listafornecedor.bin", "r+b" );
+    arquivo=fopen ("listafornecedor.dat", "r+b" );
     if (arquivo==NULL){
         printf ("Erro na abertura do arquivo");
         exit (1);
@@ -383,9 +380,7 @@ int exclui_fornecedor (){
     else {
         Fornecedor b;
         int encontrado =0;
-        
-        
-        printf ("-------EXCLUSAO DE FORNECEDOR-------");
+
         printf ("Digite o cnpj do fornecedor que deseja remover: ");
         scanf ("%s", cnpj_2);
 
@@ -437,7 +432,7 @@ int altera_fornecedor (){
     FILE *arquivo;
     char cnpj_2[15];
 
-    arquivo=fopen ("listafornecedor.bin", "r+b");
+    arquivo=fopen ("listafornecedor.dat", "r+b");
     if (arquivo==NULL){
         printf ("Erro na abertura do arquivo");
         exit (1);
@@ -447,9 +442,7 @@ int altera_fornecedor (){
         int escolha;
         int verificador = 0;
         char escolha_1;
-        
-        
-        printf ("-------ALTERAR DADOS DO FORNECEDOR-------");
+
         printf ("Digite o cnpj do fornecedor para fazer a alteracao de dados: \n");
         scanf ("%s", cnpj_2);
 
@@ -530,19 +523,16 @@ int altera_fornecedor (){
 
 
 
-
-
 int main ()
 {
+  
     cadastro_cliente();
     altera_cliente();
     exclui_cliente();
     consulta_cliente();
 
-    cadastro_fornecedor();
-    altera_fornecedor();
-    exclui_fornecedor();
-    consulta_fornecedor();
-
-
+   cadastro_fornecedor();
+   altera_fornecedor();
+   exclui_fornecedor();
+   consulta_fornecedor();
 }
